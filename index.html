@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"><img src="./img/logo.png" alt=""></div>
+            <nav>
+                <ul>
+                    <li><a href="#">About US</a></li>
+                    <li><a href="#">Price</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Gallery</a></li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <img src="./img/menu.png" alt="">
+            </div>
+        </div>
+        <div class="section">
+            <div class="wrapper">
+                <div class="wrap">
+                    <div class="img">
+                        <img src="./img/n1.png" alt="" class="headimg elmt">
+                    </div>
+                </div>
+                <div class="slidebar">
+                    <ul id="Slideimg">
+                        <li class="btn">
+                            <img src="./img/slide/n2.png" alt="" onclick="imgSlider('./img/n2.png')">
+                        </li>
+                        <li class="btn active">
+                            <img src="./img/slide/n1.png" alt="" onclick="imgSlider('./img/n1.png')">
+                        </li>
+                        <li class="btn">
+                            <img src="./img/slide/n3.png" alt="" onclick="imgSlider('./img/n3.png')">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="txt">
+                <h1>Be A Rider</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio minima eaque numquam laudantium
+                    eligendi ratione veritatis recusandae quisquam repellendus eum esse tenetur incidunt optio
+                    asperiores fugit possimus, non voluptates aliquid quo praesentium odio. Molestias.</p>
+                <a href="#">Click To Ride</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script>
+        function imgSlider(e) {
+            document.querySelector(".headimg").src = e;
+        }
+        var Slideimg = document.getElementById("Slideimg");
+        var btns = Slideimg.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+
+        // change txt color according to the image
+        var h1 = document.querySelector(".h1");
+        var anchor = document.querySelector(".anc");
+        var one = document.querySelector(".one");
+        var two = document.querySelector(".two");
+        var three = document.querySelector(".three");
+        three.addEventListener("click", () => {
+            h1.style.color = "#f33333";
+            anchor.style.background = "#f33333";
+            anchor.style.border = "2px solid #f33333";
+        });
+        two.addEventListener("click", () => {
+            h1.style.color = "#252525";
+            anchor.style.background = "#252525";
+            anchor.style.border = "2px solid #252525";
+        });
+        one.addEventListener("click", () => {
+            h1.style.color = "#3aa0e7";
+            anchor.style.background = "#3aa0e7";
+            anchor.style.border = "2px solid #3aa0e7";
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
